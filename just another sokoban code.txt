@@ -1,0 +1,142 @@
+title just another sokoban
+author sowebackinthemine
+
+========
+OBJECTS
+========
+
+Background 
+white 
+
+Target 
+black
+
+Wall 
+brown
+
+Player 
+Blue   
+
+Crate 
+Orange 
+
+PullCrate
+Yellow
+
+ConnectoCrate
+lightblue
+
+=======
+LEGEND
+=======
+
+. = Background
+# = Wall
+P = Player
+C = Crate
+U = PullCrate
+@ = Crate and Target
+O = Target
+N = ConnectoCrate
+
+=======
+SOUNDS
+=======
+
+================
+COLLISIONLAYERS
+================
+
+Background
+Target
+Player, Wall, Crate, PullCrate, ConnectoCrate
+
+======
+RULES     
+======     
+
+[ > Player | Crate ] -> [  >  Player | > Crate  ]  
+[ < Player | PullCrate ] -> [ < Player | < PullCrate ]
+[< PullCrate | PullCrate ] -> [ < PullCrate | < PullCrate ]
+[ > Crate | Crate ] -> [ > Crate | > Crate ]
+[ > Player | ConnectoCrate ] -> [  >  Player | > ConnectoCrate  ] 
+[ > ConnectoCrate ] [ ConnectoCrate ] -> [ > ConnectoCrate ] [ > ConnectoCrate ]
+
+==============
+WINCONDITIONS
+==============
+
+All Crate on Target
+All PullCrate on Target
+All ConnectoCrate on Target
+
+=======     
+LEVELS
+=======
+
+#########
+#.......#
+#.......#
+#.P.C.O.#
+#.......#
+#.......#
+#########
+
+#########
+#.......#
+#..C.C..#
+#P.###..#
+#..O.O..#
+#.......#
+#########
+
+#########
+#.......#
+#.......#
+#.P.U.O.#
+#.......#
+#.......#
+#########
+
+###########     
+#O........#
+#.....#...#
+#.C.U.#O..#
+#.....#...#
+#.P.......#
+#.........#
+###########
+
+###########     
+#U#.......#
+#U#.......#
+#.....O.O.#
+#..P......#
+#.........#
+#.........#
+###########
+
+#########
+#.......#
+####..O.#
+#UPC....#
+####..O.#
+#.......#
+#########
+
+###########
+.........U#
+....CCC...#
+#...CPC...#
+#...CCC...#
+#O........#
+#.OOOOOOOO#
+###########
+
+#########
+#.......#
+#.P.N.O.#
+#.......#
+#########
+#...N.O.#
+#########
